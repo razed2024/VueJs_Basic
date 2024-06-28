@@ -1,30 +1,44 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script >
+import Navbar from './components/Navbar.vue'
+import AllFriends from './components/AllFriends.vue'
+import OnlineFriends from './components/OnlineFriends.vue'
+ export default {
+
+  name:'App',
+  data(){
+    
+  return{
+    title:'Hurray ! Our vue apps are running',
+    friends:[
+            {name:'A',online:true},
+            {name:'B',online:true},
+            {name:'C',online:false},
+            {name:'D',online:true},
+            {name:'E',online:false},
+        ]
+
+
+  }
+},
+components:{
+  Navbar,
+  AllFriends,
+  OnlineFriends,
+}
+ }
+
 </script>
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <h1 class=" text-center p-6"> {{ title }}</h1>
+<Navbar/>
+<AllFriends :friends="friends" />
+<OnlineFriends :friends="friends" />
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
 </style>
